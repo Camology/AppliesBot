@@ -32,9 +32,6 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
-		except praw.exceptions.APIException as e:
-			if e.error_type == 'RATELIMIT':
-				time.sleep(60)
 		except Exception as e:
 			print(e)
 		print(message) #prints to console for fun
@@ -47,13 +44,6 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
-		except praw.exceptions.APIException as e:
-			if e.error_type == 'RATELIMIT':
-				time.sleep(60)
 		except Exception as e:
 			print(e) 
 		print(message) #prints to console for fun
-
-	if (author == "AardBot" or author == "AutobotDetection"):
-		comment.upvote()
-		print("upvoted you, brother"); 
