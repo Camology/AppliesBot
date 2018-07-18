@@ -32,6 +32,10 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
+		except praw.exceptions.APIException as e:
+			if e.error_type == 'RATELIMIT':
+				print('nap time boss')
+				time.sleep(60)
 		except Exception as e:
 			print(e)
 		print(message) #prints to console for fun
@@ -44,6 +48,10 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
+		except praw.exceptions.APIException as e:
+			if e.error_type == 'RATELIMIT':
+				print('nap time boss')
+				time.sleep(60)
 		except Exception as e:
 			print(e) 
 		print(message) #prints to console for fun
