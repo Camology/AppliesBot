@@ -32,14 +32,9 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
-		except praw.exceptions.APIException as e:
-			if e.error_type == 'RATELIMIT':
-				print('nap time boss')
-				time.sleep(60)
+			print(message) #prints to console for fun
 		except Exception as e:
 			print(e)
-		print(message) #prints to console for fun
-
 	if keyword2 in text.lower() and author != 'ApplesBot' and author != 'AutoModerator': #put username here so you dont match on yourself
 		message = ''.join(("Hello everyone, my name is the ApplesBot.   \n   ",
 					"u/{0}".format(author)," you typed ", keyword2,
@@ -48,10 +43,7 @@ for comment in comments:
 		))
 		try:
 			comment.reply(message) #sends the message
-		except praw.exceptions.APIException as e:
-			if e.error_type == 'RATELIMIT':
-				print('nap time boss')
-				time.sleep(60)
+			print(message) #prints to console for fun
 		except Exception as e:
 			print(e) 
-		print(message) #prints to console for fun
+		
